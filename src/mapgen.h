@@ -14,12 +14,11 @@ struct Chunk {
 	struct Tile tilemap[30][100];
 	// int biome;
 };
-struct int findAdj(int x, int y, int type);
 
 struct Chunk testgen();
 
 struct Chunk genRandom();
 
-struct int findMap();
+//int findChunk();
 
 #endif

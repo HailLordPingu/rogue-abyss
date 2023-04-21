@@ -7,6 +7,10 @@ struct Tile default_tile() { // face char, type, breakable, color
 	struct Tile tile = {'.', 0, true, 0};
 	return tile;
 }
+struct Tile empty_tile(){
+	struct Tile tile = {' ', 1, false, 0};
+	return tile;
+}
 
 struct Chunk testgen() {
 	struct Chunk testmap;
@@ -34,6 +38,8 @@ struct Chunk genRandom(int per) {
 		for(int j = 0; j < GAME_X; j++) { // x
 			if(rand()%100 <= per-1){
 				testmap.tilemap[i][j] = default_tile();
+			} else{
+				testmap.tilemap[i][j] = empty_tile();
 			}
 		}
 	}
