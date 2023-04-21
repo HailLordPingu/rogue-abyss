@@ -23,7 +23,7 @@ int main() {
 
 	// Game loop
 
-	struct Chunk test = testgen();
+	struct Chunk test = genRandom(62);
 	gamerend(game, test);
 
 	while(true) { // keybinds, game stuff
@@ -46,3 +46,17 @@ void rect(int y1, int x1, int y2, int x2) {
 		}
 	}
 }
+int checkAdj(int x, int y, int type){
+	count = 0;
+	for(int i = -1; i < 2; i++){
+		for(int j = -1; j < 2; j++){
+			if(i == 0 && j == 0){
+				continue;
+			} else if(test.tilemap[y+i][x+j].type == type){
+				count++;
+			}
+		}
+	}
+	return count;
+}
+
