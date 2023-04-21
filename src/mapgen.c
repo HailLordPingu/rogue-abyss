@@ -32,7 +32,7 @@ struct Chunk genRandom(int per) {
 	struct Chunk testmap;
 	for(int i = 0; i < GAME_Y; i++) { // y
 		for(int j = 0; j < GAME_X; j++) { // x
-			if(rand%100 <= per-1){
+			if(rand()%100 <= per-1){
 				testmap.tilemap[i][j] = default_tile();
 			}
 		}
