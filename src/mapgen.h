@@ -19,6 +19,7 @@ struct Chunk testgen();
 
 struct Chunk genRandom();
 
+int checkAdj(int y, int x, int type, struct Chunk c);
 //int findChunk();
 
 #endif
