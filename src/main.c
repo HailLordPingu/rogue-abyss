@@ -5,6 +5,8 @@
 #include "render.h"
 
 int main() {
+	//seed
+	srand(338432);
 	// vars
 	int cols, rows;
 	getmaxyx(stdscr, rows, cols);
@@ -23,15 +25,18 @@ int main() {
 
 	// Game loop
 
-	struct Chunk test = genRandom(62);
+	struct Chunk test = genRandom(610);
 
 
 	gamerend(game, test);
 	while(true) { // keybinds, game stuff
 		switch(wgetch(game)) {
 			default:
+				//See the map generation unfold between your very eyes every time you press a key
+				test = stepMapGen(0.78, 0.45, test);
+				gamerend(game, test);
 				continue;
-			case 'q':
+			case 'q': //Unless you press this key
 				endwin();
 				return 0;
 		}
