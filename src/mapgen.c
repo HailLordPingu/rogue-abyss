@@ -28,6 +28,13 @@ struct Chunk testgen() {
 
 	return testmap;
 }
+struct Chunk defaultGen(){
+	struct Chunk c = genRandom(605);
+	for(int i = 0; i < 10; i++){
+		c = stepMapGen(0.78, 0.45,c);
+	}
+	return c;
+}
 
 struct Chunk cavegen() {
 	struct Chunk genmap;

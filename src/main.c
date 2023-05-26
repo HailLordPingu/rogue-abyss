@@ -6,7 +6,8 @@
 
 int main() {
 	//seed
-	srand(338432);
+	int seed = 1;
+	srand(seed);
 	// vars
 	int cols, rows;
 	getmaxyx(stdscr, rows, cols);
@@ -25,15 +26,15 @@ int main() {
 
 	// Game loop
 
-	struct Chunk test = genRandom(610);
+	struct Chunk test = defaultGen();
 
 
 	gamerend(game, test);
 	while(true) { // keybinds, game stuff
 		switch(wgetch(game)) {
 			default:
-				//See the map generation unfold between your very eyes every time you press a key
-				test = stepMapGen(0.78, 0.45, test);
+				seed++;
+				test = defaultGen();
 				gamerend(game, test);
 				continue;
 			case 'q': //Unless you press this key

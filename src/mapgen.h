@@ -23,6 +23,7 @@ int checkAdj(int y, int x, int type, struct Chunk c);
 
 struct Chunk stepMapGen(double createPer, double deletePer, struct Chunk c);
 //struct Chunk findChunk(int y, int x); //This is supposed to find the chunk the coordinates are in
+struct Chunk defaultGen();
 
 int checkNumNeigh(int y, int x);
 
