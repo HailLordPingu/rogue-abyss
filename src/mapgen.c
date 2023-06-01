@@ -2,6 +2,7 @@
 
 #include "main.h"
 #include "mapgen.h"
+#include "player.h"
 
 struct Tile default_tile() { // face char, type, breakable, color
 	struct Tile tile = {'.', 0, true, 0};
@@ -11,7 +12,7 @@ struct Tile empty_tile(){
 	struct Tile tile = {' ', 1, false, 0};
 	return tile;
 }
-struct Tile special_tile(){
+struct Tile player_tile(){
 	struct Tile tile = {'%', 2, false, 0};
 	return tile;
 }

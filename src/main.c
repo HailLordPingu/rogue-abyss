@@ -3,6 +3,7 @@
 #include "mapgen.h"
 #include "main.h"
 #include "render.h"
+#include "player.h"
 
 int main() {
 	//seed
@@ -27,7 +28,7 @@ int main() {
 	// Game loop
 
 	struct Chunk test = defaultGen();
-
+	//struct Player theMan = initial_player();
 
 	gamerend(game, test);
 	while(true) { // keybinds, game stuff
