@@ -16,7 +16,6 @@ struct Tile player_tile(){
 	struct Tile tile = {'%', 2, false, 0};
 	return tile;
 }
-
 struct Chunk testgen() {
 	struct Chunk testmap;
 	for(int i = 0; i < GAME_Y; i++) { // y
@@ -61,7 +60,9 @@ struct Chunk genRandom(int per) {
 	testmap.tilemap[testY][testX].ch = '0'+checkNumNeigh(testY, testX); //Test the checkNeigh function*/
 	return testmap;
 }
-//Your handy dandy adj function (I cannot spell the actual word)
+bool checkTile(int y, int x, int type, struct Chunk c){
+	return c.tilemap[y][x].type == type;
+}
 //Should work for any coordinate given in bound, and any type.  Chunk is a placeholder for now.
 int checkAdj(int y, int x, int type, struct Chunk c){
 	int count = 0;

@@ -1,5 +1,6 @@
 #ifndef PLAYER_H
 #define PLAYER_H
+#include "mapgen.h"
 
 struct Player {
 	int str, mov, brn, hrd; // stats
@@ -7,8 +8,8 @@ struct Player {
 
 	int x,y; // cords
 };
-//Player with all stats 0
 struct Player initial_player();
-struct Player spawnPlayer(struct Chunk c);
-struct Player findGoodSpace(int y, int x);
+void spawnInitialPlayer(struct Player *p, struct Chunk c);
+void setPlayerCoords(struct Player *p, int y, int x);
+void controlPlayer(struct Player *p, int key, struct Chunk c);
 #endif

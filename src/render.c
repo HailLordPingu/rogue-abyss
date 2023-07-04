@@ -5,7 +5,7 @@
 #include "mapgen.h"
 #include "player.h"
 
-void gamerend(WINDOW* win, /*struct Player player,*/ struct Chunk chunk) {
+void gamerend(WINDOW* win, struct Player player, struct Chunk chunk) {
 	for(int i = 0; i < GAME_Y; i++) { // y
 		for(int j = 0; j < GAME_X; j++) { // x
 			
@@ -18,6 +18,6 @@ void gamerend(WINDOW* win, /*struct Player player,*/ struct Chunk chunk) {
 			// color (?)
 		}
 	}
-	//mvwaddch(win, player.y, player.x, 'p');
+	mvwaddch(win, player.y, player.x, 'p');
 	wrefresh(win);
 }

@@ -28,19 +28,25 @@ int main() {
 	// Game loop
 
 	struct Chunk test = defaultGen();
-	//struct Player theMan = initial_player();
-
-	gamerend(game, test);
+	struct Player theMan = initial_player();
+	spawnInitialPlayer(&theMan, test);
+	int in;
+	gamerend(game, theMan, test);
 	while(true) { // keybinds, game stuff
-		switch(wgetch(game)) {
+		in = wgetch(game);
+		switch(in) {
 			default:
-				seed++;
-				test = defaultGen();
-				gamerend(game, test);
+				controlPlayer(&theMan, in, test);
+				gamerend(game, theMan, test);
 				continue;
 			case 'q': //Unless you press this key
 				endwin();
 				return 0;
+			case 'z':
+				seed++;
+				test = defaultGen();
+				spawnInitialPlayer(&theMan, test);
+				gamerend(game, theMan, test);
 		}
 	}
 	endwin();
