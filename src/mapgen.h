@@ -31,4 +31,5 @@ struct Chunk defaultGen();
 int checkNumNeigh(int y, int x);
 
 bool checkTile(int y, int x, int type, struct Chunk c);
+void changeTile(struct Chunk *c, int y, int x, int type);
 #endif

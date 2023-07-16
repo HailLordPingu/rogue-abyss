@@ -108,3 +108,14 @@ struct Chunk stepMapGen(double createPer, double deletePer, struct Chunk c){
 	}
 	return next;
 }
+void changeTile(struct Chunk *d, int y, int x, int type){
+	switch(type){
+		case 0:
+			d->tilemap[y][x].ch = '.';
+			break;
+		case 1:
+			d->tilemap[y][x].ch = ' ';
+			break;
+	}
+	d->tilemap[y][x].type = type;
+}

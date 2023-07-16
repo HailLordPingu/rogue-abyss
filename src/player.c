@@ -29,29 +29,37 @@ void spawnInitialPlayer(struct Player *p, struct Chunk c){
 	}
 }
 //The movement is hardcoded, it would be changed later to fufill conditionals (if the tile is blocked)
-void controlPlayer(struct Player *p, int key, struct Chunk c){
+void controlPlayer(struct Player *p, int key, struct Chunk *d){
 	switch(key){
-		case 'i':
-			if(checkTile(p->y-1, p->x, 1, c)){
+		case 'u':
+			if(checkTile(p->y-1, p->x, 1, *d)){
 				p->y-=1;
-			}
-			break;
-
-		case 'k':
-			if(checkTile(p->y+1, p->x, 1, c)){
-				p->y+=1;
+			} else{
+				changeTile(d, p->y-1, p->x, 1);
 			}
 			break;
 
 		case 'j':
-			if(checkTile(p->y, p->x-1, 1, c)){
-				p->x-=1;
+			if(checkTile(p->y+1, p->x, 1, *d)){
+				p->y+=1;
+			} else{
+				changeTile(d, p->y+1, p->x, 1);
 			}
 			break;
 
-		case 'l':
-			if(checkTile(p->y, p->x+1, 1, c)){
+		case 'h':
+			if(checkTile(p->y, p->x-1, 1, *d)){
+				p->x-=1;
+			}else{
+				changeTile(d, p->y, p->x-1, 1);
+			}
+			break;
+
+		case 'k':
+			if(checkTile(p->y, p->x+1, 1, *d)){
 				p->x+=1;
+			} else{
+				changeTile(d, p->y, p->x+1, 1);
 			}
 			break;
 		default:

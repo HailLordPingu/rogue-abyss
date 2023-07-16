@@ -36,7 +36,7 @@ int main() {
 		in = wgetch(game);
 		switch(in) {
 			default:
-				controlPlayer(&theMan, in, test);
+				controlPlayer(&theMan, in, &test);
 				gamerend(game, theMan, test);
 				continue;
 			case 'q': //Unless you press this key
