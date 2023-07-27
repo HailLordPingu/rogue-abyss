@@ -19,5 +19,6 @@ void gamerend(WINDOW* win, struct Player player, struct Chunk chunk) {
 		}
 	}
 	mvwaddch(win, player.y, player.x, 'p');
+	mvwaddch(win, chunk.npc.y, chunk.npc.x, 'n');
 	wrefresh(win);
 }

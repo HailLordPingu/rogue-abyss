@@ -37,6 +37,8 @@ int main() {
 		switch(in) {
 			default:
 				controlPlayer(&theMan, in, &test);
+				setNPCIntent(&test.npc);
+				NPCAction(&test);
 				gamerend(game, theMan, test);
 				continue;
 			case 'q': //Unless you press this key

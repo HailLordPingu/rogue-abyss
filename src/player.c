@@ -32,7 +32,7 @@ void spawnInitialPlayer(struct Player *p, struct Chunk c){
 void controlPlayer(struct Player *p, int key, struct Chunk *d){
 	switch(key){
 		case 'u':
-			if(checkTile(p->y-1, p->x, 1, *d)){
+			if(checkTile(p->y-1, p->x, *d) == 1){
 				p->y-=1;
 			} else{
 				changeTile(d, p->y-1, p->x, 1);
@@ -40,7 +40,7 @@ void controlPlayer(struct Player *p, int key, struct Chunk *d){
 			break;
 
 		case 'j':
-			if(checkTile(p->y+1, p->x, 1, *d)){
+			if(checkTile(p->y+1, p->x, *d) == 1){
 				p->y+=1;
 			} else{
 				changeTile(d, p->y+1, p->x, 1);
@@ -48,7 +48,7 @@ void controlPlayer(struct Player *p, int key, struct Chunk *d){
 			break;
 
 		case 'h':
-			if(checkTile(p->y, p->x-1, 1, *d)){
+			if(checkTile(p->y, p->x-1, *d) == 1){
 				p->x-=1;
 			}else{
 				changeTile(d, p->y, p->x-1, 1);
@@ -56,7 +56,7 @@ void controlPlayer(struct Player *p, int key, struct Chunk *d){
 			break;
 
 		case 'k':
-			if(checkTile(p->y, p->x+1, 1, *d)){
+			if(checkTile(p->y, p->x+1, *d) == 1){
 				p->x+=1;
 			} else{
 				changeTile(d, p->y, p->x+1, 1);

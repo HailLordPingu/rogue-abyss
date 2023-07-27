@@ -1,17 +1,19 @@
 #ifndef MAPGEN_H
 #define MAPGEN_H
 #include <stdlib.h>
-
 struct Tile {
 	char ch; // face char
 	int type; // eg. land, chest, pc, etc.  0 - nothing, 1 block
 	bool breakable; // if can be broken
 	int color; // self explanitory
-
 };
-
+struct Npc {
+	int y, x;
+	char intent;
+};
 struct Chunk {
 	struct Tile tilemap[30][100];
+	struct Npc npc;
 	// int biome;
 };
 
@@ -30,6 +32,11 @@ struct Chunk defaultGen();
 //Check the total number of neighboors.  Should usually be 8; 5 if it is a side tile; 3 if it is a corner tile
 int checkNumNeigh(int y, int x);
 
-bool checkTile(int y, int x, int type, struct Chunk c);
+int checkTile(int y, int x, struct Chunk c);
 void changeTile(struct Chunk *c, int y, int x, int type);
+
+void spawnNPC(struct Chunk *d);
+
+void setNPCIntent(struct Npc *n);
+void NPCAction(struct Chunk *c);
 #endif
